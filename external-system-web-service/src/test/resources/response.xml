@@ -1,0 +1,5 @@
+<ns2:GetCityForecastByZIPResponse xmlns:ns2="http://ws.cdyne.com/WeatherWS/">
+   <ns2:GetCityForecastByZIPResult>
+      <ns2:Success>OK</ns2:Success>
+   </ns2:GetCityForecastByZIPResult>
+</ns2:GetCityForecastByZIPResponse>

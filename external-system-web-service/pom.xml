@@ -18,11 +18,15 @@
 	<properties>
 		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
 		<build-helper-maven-plugin.version>1.7</build-helper-maven-plugin.version>
-		
+
 		<cxf.version>3.2.1</cxf.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>hexagonal-architecture-domain</artifactId>
+		</dependency>
 		<!-- cxf -->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
@@ -30,19 +34,42 @@
 			<version>${cxf.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<scope>test</scope>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 		</dependency>
-		<!-- Junit4 and Junit5 -->
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework.ws/spring-ws -->
 		<dependency>
-			<groupId>org.junit.vintage</groupId>
-			<artifactId>junit-vintage-engine</artifactId>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws</artifactId>
+			<version>2.4.3.RELEASE</version>
+			<type>pom</type>
+		</dependency>
+
+		<!-- Spring Test dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-test</artifactId>
+			<version>2.2.4.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -56,7 +83,7 @@
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-app-maven-plugin</artifactId>
-			</plugin>		
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>

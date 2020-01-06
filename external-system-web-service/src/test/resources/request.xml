@@ -1,0 +1,3 @@
+<ns2:GetCityForecastByZIP xmlns:ns2="http://ws.cdyne.com/WeatherWS/"> 
+   <ns2:ZIP>23454</ns2:ZIP>
+</ns2:GetCityForecastByZIP>

@@ -33,26 +33,42 @@
 		<maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
 		<build-helper-maven-plugin.version>1.7</build-helper-maven-plugin.version>
 
-		<spring-boot.version>1.2.4.RELEASE</spring-boot.version>
 		<junit-jupiter.version>5.5.2</junit-jupiter.version>
-		<mockito.version>2.28.2</mockito.version>				
+		<mockito.version>2.28.2</mockito.version>
+        <assertj-core.version>3.13.2</assertj-core.version>
+
+		<lombok.version>1.18.10</lombok.version>
+		<hexagonal-architecture-domain.version>1.0.0-SNAPSHOT</hexagonal-architecture-domain.version>							
 	</properties>
 
+	 <parent>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-parent</artifactId>
+	    <version>1.2.4.RELEASE</version>
+	    <relativePath/>
+	  </parent>
+	  
 	<modules>
 		<module>external-system-web-service</module>
 	</modules>
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- Spring Boot Dependencies -->
+
 			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-dependencies</artifactId>
-				<version>${spring-boot.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<!-- for testing -->
+				<groupId>${project.groupId}</groupId>
+				<artifactId>hexagonal-architecture-domain</artifactId>
+				<version>${hexagonal-architecture-domain.version}</version>			
+			</dependency>	
+					
+			<!-- External Dependencies -->										
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <optional>true</optional>
+            </dependency>			
+			<!-- Test dependencies -->
 			<dependency>
 				<groupId>org.junit</groupId>
 				<artifactId>junit-bom</artifactId>
@@ -65,7 +81,13 @@
 				<artifactId>mockito-core</artifactId>
 				<version>${mockito.version}</version>
 				<scope>test</scope>
-			</dependency>
+			</dependency>			
+			<dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>${assertj-core.version}</version>
+                <scope>test</scope>
+            </dependency>					
 		</dependencies>
 	</dependencyManagement>
 
